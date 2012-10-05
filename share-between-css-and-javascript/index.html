@@ -3,6 +3,10 @@
   <head>
     <title>share breakpoints between css and javascript</title>
     <style>
+      body {
+        font-size: 62.5%;
+      }
+
       body:after {
         display: none;
         content: '';
@@ -12,12 +16,12 @@
         background-color: hotpink;
       }
 
-      @media screen and (min-width: 401px) {
+      @media screen and (min-width: 40em) {
         div {
           background-color: pink;
         }
         body:after {
-          content: '401';
+          content: '40';
         }
       }
     </style>
