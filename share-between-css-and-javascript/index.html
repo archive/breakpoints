@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>share breakpoints between css and javascript</title>
+    <style>
+      body:after {
+        display: none;
+        content: '';
+      }
+
+      div {
+        background-color: hotpink;
+      }
+
+      @media screen and (min-width: 401px) {
+        div {
+          background-color: pink;
+        }
+        body:after {
+          content: '401';
+        }
+      }
+    </style>
+  </head>
+<body>
+  <div>
+    div
+  </div>
+  <button>test</button>
+  <script>
+    var button = document.getElementsByTagName('button')[0];
+    button.addEventListener('click', function (event) {
+      var content = window
+          .getComputedStyle(document.body,':after')
+          .getPropertyValue('content');
+      alert(content);
+    }, false);
+  </script>
+</body>
+</html>
