@@ -21,12 +21,13 @@
           background-color: pink;
         }
         body:after {
-          content: '40';
+          /* content: '(min-width: 40em)'; */
+          content: attr(data-id)'(min-width: 40em)';
         }
       }
     </style>
   </head>
-<body>
+<body data-id="some-id">
   <div>
     div
   </div>

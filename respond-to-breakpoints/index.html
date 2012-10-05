@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>share breakpoints between css and javascript</title>
+    <style>
+      div {
+        background-color: hotpink;
+      }
+
+      @media screen and (min-width: 40em) {
+        div {
+          background-color: pink;
+        }
+      }
+
+      @media screen and (min-width: 50em) {
+        div {
+          background-color: red;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <div>
+    div
+  </div>
+  <script>
+    var changed = function (mediaQueryList) {
+      document.getElementsByTagName("div")[0].innerHTML += '<br>query: ' + mediaQueryList.media + ' match: ' + mediaQueryList.matches;
+    };
+
+    var match1 = window.matchMedia("screen and (min-width: 40em)");
+    match1.addListener(changed);
+
+    var match2 = window.matchMedia("screen and (min-width: 50em)");
+    match2.addListener(changed);
+  </script>
+</body>
+</html>
