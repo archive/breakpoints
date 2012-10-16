@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>track shared breakpoints</title>
+    <style>
+      body {
+        font-size: 150%;
+      }
+
+      body:after {
+        content: '';
+        display: none;
+      }
+
+      div {
+        background-color: red;
+      }
+
+      @media screen and (min-width: 40em) {
+        div {
+          background-color: green;
+        }
+        body:after {
+          content: attr(data-id);
+        }
+      }
+    </style>
+  </head>
+<body data-id="Namespace.SomeBreakpointId">
+  <div>
+    
+  </div>
+  <script type="text/javascript" src="breakpoints.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>
